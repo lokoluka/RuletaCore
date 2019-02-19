@@ -11,6 +11,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
 using Ruleta.Models;
+using Ruleta.Services;
 
 namespace Ruleta
 {
@@ -29,6 +30,8 @@ namespace Ruleta
             services.AddDbContext<Context>(opt =>
                 opt.UseInMemoryDatabase("CasillaList"));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddSingleton<IJugadorServices, JugadorServices>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -38,7 +41,11 @@ namespace Ruleta
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            else
+            {
+                app.UseHsts();
+            }
+            app.UseHttpsRedirection();
             app.UseMvc();
         }
     }
