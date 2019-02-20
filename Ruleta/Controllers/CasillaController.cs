@@ -13,9 +13,9 @@ namespace Ruleta.Controllers
     [ApiController]
     public class CasillaController : ControllerBase
     {
-        private readonly Context _db ;
+        private readonly CasillaContext _db ;
 
-        public CasillaController(Context context)
+        public CasillaController(CasillaContext context)
         {
             _db = context; 
 

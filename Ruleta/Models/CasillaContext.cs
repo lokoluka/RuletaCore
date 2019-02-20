@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Ruleta.Models
 {
-    public class Context : DbContext
+    public class CasillaContext : DbContext
     {
-        public Context(DbContextOptions<Context> options)
+        public CasillaContext(DbContextOptions<CasillaContext> options)
             : base(options)
         {
         }
